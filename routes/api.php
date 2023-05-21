@@ -21,6 +21,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('logout', [App\Http\Controllers\API\AuthController::class, 'logout'])->name('logout');
         Route::get('user', [App\Http\Controllers\API\UserController::class, 'getUser'])->name('getUser');
+        Route::get('get-categories', [App\Http\Controllers\API\ArticlesController::class, 'getCategories'])->name('getCategories');
     });
 
 });
