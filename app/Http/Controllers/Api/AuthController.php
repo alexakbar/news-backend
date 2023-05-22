@@ -40,9 +40,7 @@ class AuthController extends BaseController
         $data['token'] = $user->createToken('Token')->accessToken;
         $data['username'] = $user->username;
         $data['email'] =  $user->email;
-        $data['preferred_sources'] = $user->preferred_sources;
-        $data['categories'] = $user->categories;
-        $data['authors'] = $user->authors;
+        $data['is_personalize'] = false;
 
         return $this->sendResponse($data, 'User register successfully.', 201);
     }
@@ -70,9 +68,12 @@ class AuthController extends BaseController
             $data['token'] = $user->createToken('Token')->accessToken;
             $data['username'] =  $user->username;
             $data['email'] =  $user->email;
-            $data['preferred_sources'] = $user->preferred_sources;
-            $data['categories'] = $user->categories;
-            $data['authors'] = $user->authors;
+            if ($user->preferred_sources == null 
+                || $user->preferred_sources == 'null' 
+                || $user->preferred_sources == '[]') {
+                $data['is_personalize'] = false;
+            } else
+                $data['is_personalize'] = true;
 
             return $this->sendResponse($data, 'User login successfully.');
         } 
