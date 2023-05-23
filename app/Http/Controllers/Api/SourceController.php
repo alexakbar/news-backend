@@ -10,7 +10,7 @@ class SourceController extends BaseController
         return $this->sendResponse([
             [
                 'id' => 'nytimes',
-                'label' => 'New York Times',
+                'name' => 'New York Times',
             ],
         ], 'Sources retrieved successfully.');
     }
