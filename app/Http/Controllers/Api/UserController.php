@@ -53,6 +53,11 @@ class UserController extends BaseController
             }
         }
 
+        // check not is_personalized
+        if (!$user->is_personalized) {
+            $user->is_personalized = true;
+        }
+
         $user->save();
 
         return $this->sendResponse($user, 'User retrieved successfully.');

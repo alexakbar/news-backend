@@ -39,7 +39,7 @@ class AuthController extends BaseController
         // create token
         $dataUser['username'] =  $user->username;
         $dataUser['email'] =  $user->email;
-        $dataUser['is_personalize'] = false;
+        $dataUser['is_personalized'] = false;
         $data['token'] = $user->createToken('Token')->accessToken;
         $data['data'] = $dataUser;
 
@@ -70,12 +70,7 @@ class AuthController extends BaseController
             $data['token'] = $user->createToken('Token')->accessToken;
             $dataUser['username'] =  $user->username;
             $dataUser['email'] =  $user->email;
-            if ($user->preferred_sources == null 
-                || $user->preferred_sources == 'null' 
-                || $user->preferred_sources == '[]') {
-                $dataUser['is_personalize'] = false;
-            } else
-                $dataUser['is_personalize'] = true;
+            $dataUser['is_personalized'] = $user->is_personalized ? true : false;
             $data['data'] = $dataUser;
 
             return $this->sendResponse($data, 'User login successfully.');
