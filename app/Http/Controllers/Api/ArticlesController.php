@@ -13,7 +13,7 @@ class ArticlesController extends BaseController
 
     /**
      * search articles
-     * 
+     *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -32,8 +32,8 @@ class ArticlesController extends BaseController
         // serach by keyword
         if ($query) {
             $posts->where(function ($q) use ($query) {
-                $query->where('title', 'LIKE', "%$query%")
-                    ->orWhere('content', 'LIKE', "%$query%");
+                $q->where('title', 'LIKE', "%$query%")
+                    ->orWhere('description', 'LIKE', "%$query%");
             });
         }
 
