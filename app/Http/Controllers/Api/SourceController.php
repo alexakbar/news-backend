@@ -12,6 +12,14 @@ class SourceController extends BaseController
                 'id' => 'nytimes',
                 'name' => 'New York Times',
             ],
+            [
+                'id' => 'newsapi',
+                'name' => 'News API',
+            ],
+            [
+                'id' => 'theguardian',
+                'name' => 'The Guardian',
+            ]
         ], 'Sources retrieved successfully.');
     }
 }

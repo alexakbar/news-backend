@@ -46,10 +46,10 @@ class UserController extends BaseController
                 $user->categories = json_encode($request->categories);
             }
         }
-        if ($request->sources != null) {
-            if(is_array($request->sources)){
+        if ($request->preferred_sources != null) {
+            if(is_array($request->preferred_sources)){
                 // array to json 
-                $user->sources = json_encode($request->sources);
+                $user->preferred_sources = json_encode($request->preferred_sources);
             }
         }
 
