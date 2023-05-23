@@ -37,10 +37,11 @@ class AuthController extends BaseController
 
         $data = [];
         // create token
+        $dataUser['username'] =  $user->username;
+        $dataUser['email'] =  $user->email;
+        $dataUser['is_personalize'] = false;
         $data['token'] = $user->createToken('Token')->accessToken;
-        $data['username'] = $user->username;
-        $data['email'] =  $user->email;
-        $data['is_personalize'] = false;
+        $data['data'] = $dataUser;
 
         return $this->sendResponse($data, 'User register successfully.', 201);
     }
@@ -65,15 +66,17 @@ class AuthController extends BaseController
         // check email and password
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){ 
             $user = User::where('email', $request->email)->first();
+            $data = [];
             $data['token'] = $user->createToken('Token')->accessToken;
-            $data['username'] =  $user->username;
-            $data['email'] =  $user->email;
+            $dataUser['username'] =  $user->username;
+            $dataUser['email'] =  $user->email;
             if ($user->preferred_sources == null 
                 || $user->preferred_sources == 'null' 
                 || $user->preferred_sources == '[]') {
-                $data['is_personalize'] = false;
+                $dataUser['is_personalize'] = false;
             } else
-                $data['is_personalize'] = true;
+                $dataUser['is_personalize'] = true;
+            $data['data'] = $dataUser;
 
             return $this->sendResponse($data, 'User login successfully.');
         } 
