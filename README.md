@@ -23,6 +23,19 @@ The project running on docker with port :8080
 ## CLONE FRONTEND
 
 You can clone in this link [Newspaper Frontend](https://github.com/alexakbar/newspaper-frontend)
+
+## List API NEWS
+
+ - [NEWS API](https://newsapi.org/)
+ - [The Guardian](https://open-platform.theguardian.com/documentation/)
+ - [New York Times](https://developer.nytimes.com/apis)
+
+
+## Authors
+
+- [@alexakbar](https://www.github.com/alexakbar)
+M. Firli Alikhul Akbar
+
 ## Tech Stack
 
 **Client:** Php, Pyhton, Docker
