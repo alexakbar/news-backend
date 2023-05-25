@@ -22,12 +22,13 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('categories', [App\Http\Controllers\API\CategoryController::class, 'getCategories'])->name('getCategories');
     Route::get('sources', [App\Http\Controllers\API\SourceController::class, 'getSources'])->name('getSources');
     Route::get('authors', [App\Http\Controllers\API\AuthorController::class, 'getAuthors'])->name('getAuthors');
-    Route::post('search-articles', [App\Http\Controllers\API\ArticlesController::class, 'searchArticles'])->name('searchArticles');
+    Route::post('search-articles-guest', [App\Http\Controllers\API\ArticlesController::class, 'searchArticles'])->name('searchArticlesGuest');
 
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('logout', [App\Http\Controllers\API\AuthController::class, 'logout'])->name('logout');
         Route::get('user', [App\Http\Controllers\API\UserController::class, 'getUser'])->name('getUser');
         Route::post('set-personalize', [App\Http\Controllers\API\UserController::class, 'setPersonalize'])->name('setPersonalize');
+        Route::post('search-articles', [App\Http\Controllers\API\ArticlesController::class, 'searchArticles'])->name('searchArticles');
     });
 
 });
