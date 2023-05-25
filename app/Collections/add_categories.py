@@ -1,13 +1,19 @@
 import requests
 import mysql.connector
+import os
 from slugify import slugify
+from dotenv import load_dotenv
+
+# Load the Laravel environment variables
+dotenv_path = os.path.join(os.path.dirname(__file__), '../../.env')
+load_dotenv(dotenv_path)
 
 # create connection
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="1234qwerty",
-    database="newspaper_backend"
+    host=os.getenv('DB_HOST'),
+    user= os.getenv('DB_USERNAME'),
+    passwd= os.getenv("DB_PASSWORD"),
+    database= os.getenv("DB_DATABASE")
 )
 
 cursor = db.cursor()

@@ -1,7 +1,7 @@
 import subprocess
 
 # List file python 
-python_files = ['add_categories.py', 'add_news.py']
+python_files = ['app/Collections/add_categories.py', 'app/Collections/add_news.py']
 
 # loop file python
 for file in python_files:
