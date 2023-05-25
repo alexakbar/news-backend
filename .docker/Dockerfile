@@ -26,13 +26,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Copy application files
 COPY . /var/www/html
 
-# Set permissions
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html/storage
-
-# Install application dependencies
-RUN composer install --no-dev --no-interaction --optimize-autoloader
-
 # Install python
 RUN apt-get update && apt-get install -y python3 python3-pip
 

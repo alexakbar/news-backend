@@ -54,7 +54,7 @@ services:
   
   # CREATE PHP
   php:
-    container_name: 'newspaper-backend-ph'
+    container_name: 'newspaper-backend-php'
     image: php:8.1.15-fpm
     restart: unless-stopped
     volumes:
