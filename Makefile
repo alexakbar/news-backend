@@ -4,7 +4,6 @@ docker-restart:
 
 setup: 
 	docker-compose up -d --build
-	docker exec newspaper-backend-app bash -c 'mkdir /var/www/html/.docker/mysql'
 	docker exec newspaper-backend-app bash -c 'composer install'
 	docker exec newspaper-backend-app bash -c 'chown -R www-data:www-data /var/www/html'
 	docker exec newspaper-backend-app bash -c 'chmod -R 755 /var/www/html/storage'
