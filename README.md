@@ -16,7 +16,7 @@ Run Docker Compose
 The project running on docker with port :8080
 
 ```bash
-  127.0.01:8080
+  127.0.0.1:8080
 ```
 
 
