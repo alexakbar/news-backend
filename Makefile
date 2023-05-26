@@ -13,4 +13,7 @@ setup:
 	docker exec newspaper-backend-app bash -c 'php artisan passport:install'
 	docker exec newspaper-backend-app bash -c 'php artisan python:install-requirement'
 	docker exec newspaper-backend-app bash -c 'php artisan python:run-get-data'
+
+refresh-data:
+	docker exec newspaper-backend-app bash -c 'php artisan python:run-get-data'
 	

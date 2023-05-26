@@ -19,13 +19,13 @@ db = mysql.connector.connect(
 cursor = db.cursor()
 
 # API Key NewsAPI.org
-newsapi_key = "6df4cce49cf44e9aa30bcc6ea5caba79"
+newsapi_key = os.getenv("NEWS_API_KEY")
 
 # API Key The Guardian
-guardian_key = "test"
+guardian_key = os.getenv("THE_GUARDIAN_API_KEY")
 
 # API Key NY Times
-nytimes_key = "cMMFA47N2OLC1TFpLGrCdNv0AJB5SxT6"
+nytimes_key = os.getenv("NYTIMES_API_KEY")
 
 
 # insert categories from api newsapi.org
